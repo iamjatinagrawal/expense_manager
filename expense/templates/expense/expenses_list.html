@@ -1,0 +1,35 @@
+ {% extends "expense/expense_base.html" %}
+
+ {% block body_block %}
+    <div class="container">
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Actions</button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <input class="dropdown-item" type="submit" value="Delete">
+                      <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Edit</a>
+              </div>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        <table class="table table-bordered">
+            <thead>
+                <th><input type="checkbox"></th>
+                <th>Date</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Amount</th>
+            </thead>
+            {% for exp in expenses %}
+            <tr>
+                <td><form><input type="checkbox" value="{{exp.id}}"></form></td>
+                <td>{{exp.date}}</td>
+                <td>{{exp.category}}</td>
+                <td>{{exp.description}}</td>
+                <td>{{exp.amount}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+ {% endblock %}
